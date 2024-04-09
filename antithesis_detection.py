@@ -1,4 +1,5 @@
 # Import packages
+
 # Generic
 import os 
 os.environ["CUDA_VISIBLE_DEVICES"]= "1" # Set the GPU ID
@@ -23,7 +24,7 @@ from sklearn.utils.class_weight import compute_class_weight
 from sklearn.metrics import f1_score, precision_score, recall_score, accuracy_score, average_precision_score, confusion_matrix
 from sklearn.metrics import matthews_corrcoef # Compute the Matthews correlation coefficient (MCC)
 
-# data aug libraries
+# Data aug libraries
 import nlpaug.augmenter.word as naw
 import random
 
@@ -179,7 +180,7 @@ def main():
     #transformer_model = "deepset/gelectra-base-germanquad"
     #transformer_model = "deepset/gelectra-base"
     #transformer_model = "bert-base-german-cased"
-    transformer_model = "deepset/gbert-base"   # Electra is peforming the best, it is the main model
+    transformer_model = "deepset/gbert-base"
 
     # Define Tokenizer
     tokenizer = BertTokenizer.from_pretrained(transformer_model)
@@ -190,7 +191,7 @@ def main():
     batch_size = 16
     epochs = 4  
     # Input files
-    csv_file = "antithesis_phrases_annotated.csv"
+    csv_file = "antithesis_dataset.csv"
     # Load Training Data
     dataset1 = pd.read_csv(csv_file)
     # Train-test split
@@ -198,7 +199,7 @@ def main():
     train = train_data[['sentence1','sentence2']].values.tolist()
     test = test_data[['sentence1','sentence2']].values.tolist()
 
-    # Augment data
+    ## Augment data
     # train_samples = train_data[['sentence1','sentence2', "gold_label"]].values.tolist()
     # train_data_augmented = augment_all(train_samples)
     # train = train_data_augmented[['sentence1','sentence2']].values.tolist()
@@ -225,10 +226,6 @@ def main():
 
     # Applying the build model function
     model = build_model(transformer_model, max_len)
-
-    # load weights to  models, when model is pretrained with snli for contradiction detection,
-    # checkpoint_path = "saved_model/cp.ckpt"
-    # model.load_weights(checkpoint_path)
 
     # Train model
     n_steps = len(train_data) // batch_size 
