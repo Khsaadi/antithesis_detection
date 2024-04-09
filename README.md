@@ -1,4 +1,4 @@
-# Antithesis_Detection
+# Using Pre-Trained Language Models in an End-to-End Pipeline for Antithesis Detection
 This repository contains the official implementation of "Using Pre-Trained Language Models in an End-to-End Pipeline for Antithesis Detection" accepted 
 in LREC-2024 with the newly proposed antithesis dataset (**antithesis_dataset.csv**) publicly available
 
