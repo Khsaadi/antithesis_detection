@@ -21,6 +21,8 @@ python antithesis_detection.py
 **Results**
 
 On test set of the antithesis dataset: 
+<img width="1076" alt="anti_res" src="https://github.com/Khsaadi/antithesis_detection/assets/58224339/1aa6b208-f24d-449f-a693-2efafaa6fd44">
+
 
 **Cite**
 
