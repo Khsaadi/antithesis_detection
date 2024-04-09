@@ -1,12 +1,7 @@
-"""
-
-@author: Anonymous
-"""
 # Import packages
-
 # Generic
 import os 
-os.environ["CUDA_VISIBLE_DEVICES"]= "1" # Set the gpu number
+os.environ["CUDA_VISIBLE_DEVICES"]= "1" # Set the GPU ID
 device ="cuda"
 import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
